@@ -1,0 +1,33 @@
+<div class="modal fade" id="cadastradoLoja" tabindex="-1" role="dialog" aria-labelledby="modalEntradaOperadorLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title consertaModalTitle">CADASTRO DE SENHA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" routerLink="/"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body consertaEntradaOperador">
+        <form id="sla">
+            <div class="form-group"><p>Insira um e-mail para que possamos enviar uma nova senha, digite seu CPF para validação.</p></div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Insira um email:
+            </label>
+            <input type="text" [(ngModel)]="request.nmEmail" class="form-control" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Insira o CPF cadastrado em loja:
+            </label>
+            <input type="text" [(ngModel)]="request.nrCpf" class="form-control" mask="000.000.000-00" name="cpf" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer consertaModalBotton">
+        <button type="button" routerLink="/login" class="btn btn-danger" data-dismiss="modal"
+          id="btnCancelarPagamento">CANCELAR</button>
+        <button type="button" class="btn btn btn-success" data-dismiss="modal"
+          routerLink=".." (click)="adicionarSenha()" id="btnCancelarPagamento">CONFIRMAR</button>
+      </div>
+    </div>
+  </div>
+</div>

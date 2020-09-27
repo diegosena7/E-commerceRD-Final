@@ -1,0 +1,354 @@
+<app-header-main></app-header-main>
+<app-menu-final-compra></app-menu-final-compra>
+
+<div class="col-lg-12 container">
+  <div class="row">
+    <div class="col-lg-6 box">
+      <br>
+      <h3><span>Formas de Pagamento</span></h3>
+      <br>
+      <div class="caixa">
+        <!--INICIO Collapse Pagamentos -->
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              <input type="radio" name="forma-de-pagamento" id="1" class="credito col-1" [value]="1"
+                [(ngModel)]="idPagamento">
+              <span>Crédito</span> &nbsp; &nbsp; &nbsp;
+              <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-credit-card-fill" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4z" />
+                <path fill-rule="evenodd"
+                  d="M0 7v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H3z" />
+              </svg>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <div class="row pagamento-cartao">
+                  <br>
+                  <!--INICIO Collapse Cartões -->
+
+                  <div class="accordion" id="accordion1">
+                    <div class="card">
+                      <input type="radio" [disabled]="idPagamento != 1" name="opcao-cartao" id="teste" [(ngModel)]="opcaoPagamentoCredito" [value]="'1'">
+                      <span class="tituloCredito">Digite os dados para pagamento</span>
+                      <div class="card">
+                        <div class="card-header">
+                          <div class="row">
+                            Número do Cartão
+                            <input [disabled]="idPagamento != 1" type="text" class="form-control" id="nrNumeroCartao"
+                              name="nrNumeroCartao" placeholder="0000.0000.0000.0000" [(ngModel)]="nrNumeroCartao"
+                              mask="0000.0000.0000.0000">
+                            Nome no Cartão
+                            <input [disabled]="idPagamento != 1" type="text" class="form-control" id="nmNomeTitular"
+                              name="nmNomeTitular" [(ngModel)]="nmNomeTitular">
+                          </div>
+                          <br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <div class="row pagar">
+                            <div class="card-header">
+                              <div class="row">
+                                <div class="col-lg-3">
+                                  <select [disabled]="idPagamento != 1" id="inputmes" class="form-control" name="mes" [(ngModel)]="novoMes">
+                                    <option selected></option>
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                  </select>
+                                </div>
+
+                                <div class="col-lg-4">
+                                  <select [disabled]="idPagamento != 1" id="inputano" class="form-control" name="ano" [(ngModel)]="novoAno">
+                                    <option selected></option>
+                                    <option>2020</option>
+                                    <option>2021</option>
+                                    <option>2022</option>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                    <option>2026</option>
+                                    <option>2027</option>
+                                    <option>2028</option>
+                                    <option>2029</option>
+                                    <option>2030</option>
+                                    <option>2031</option>
+                                    <option>2033</option>
+                                    <option>2034</option>
+                                    <option>2035</option>
+                                    <option>2036</option>
+                                    <option>2037</option>
+                                    <option>2038</option>
+                                    <option>2039</option>
+                                    <option>2040</option>
+                                    <option>2041</option>
+                                    <option>2042</option>
+                                    <option>2043</option>
+                                    <option>2044</option>
+                                    <option>2045</option>
+                                    <option>2046</option>
+                                    <option>2047</option>
+                                    <option>2048</option>
+                                    <option>2049</option>
+                                    <option>2050</option>
+                                  </select>
+                                </div>
+                                &nbsp; &nbsp;
+                                <input [disabled]="idPagamento != 1" class="col-lg-2" type="text" name="CVC"
+                                  placeholder="CVC" maxlength="3">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <span class="tituloCredito">Pagar com cartão Salvo</span>
+
+
+                        <div class="card-header" id="subOne" *ngFor="let cartao of cartoes; let i = index">
+                          <div class="row">
+                            <input type="radio" name="opcao-cartao" id="teste" class="credito col-1" [value]="'cartaoSalvo-'+i"
+                              [(ngModel)]="opcaoPagamentoCredito">
+                            ****.****{{cartao.nrNumeroCartao | slice: 14}} &nbsp;{{cartao.nmNomeTitular | slice: 0:5}}..
+                            &nbsp; &nbsp;
+
+                            <div class="col-lg-2">
+                              <select [disabled]="idPagamento != 1" id="inputmes" class="form-control" name="mes"
+                                [(ngModel)]="cartao.mes">
+                                <option selected></option>
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                              </select>
+                            </div>
+
+                            <div class="col-lg-3">
+                              <select [disabled]="idPagamento != 1" id="inputano" class="form-control" name="ano"
+                                [(ngModel)]="cartao.ano">
+                                <option selected></option>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                                <option>2023</option>
+                                <option>2024</option>
+                                <option>2025</option>
+                                <option>2026</option>
+                                <option>2027</option>
+                                <option>2028</option>
+                                <option>2029</option>
+                                <option>2030</option>
+                                <option>2031</option>
+                                <option>2033</option>
+                                <option>2034</option>
+                                <option>2035</option>
+                                <option>2036</option>
+                                <option>2037</option>
+                                <option>2038</option>
+                                <option>2039</option>
+                                <option>2040</option>
+                                <option>2041</option>
+                                <option>2042</option>
+                                <option>2043</option>
+                                <option>2044</option>
+                                <option>2045</option>
+                                <option>2046</option>
+                                <option>2047</option>
+                                <option>2048</option>
+                                <option>2049</option>
+                                <option>2050</option>
+                              </select>
+                            </div>
+                            &nbsp; &nbsp;
+                            <input [disabled]="idPagamento != 1" class="col-lg-2" type="text" name="CVC"
+                              placeholder="CVC" [(ngModel)]="cartao.cvc" maxlength="3">
+                          </div>
+                        </div>
+
+                        <div class="card">
+                          <div class="card-header" id="subThree">
+                            <h5 class="mb-0">
+                              <button class="btn btn-link collapsed float-right" data-toggle="collapse"
+                                data-parent="#accordion1" data-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                Inserir novo cartão
+                              </button>
+                            </h5>
+                          </div>
+
+                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+
+                            <div class="card-body">
+                              <form name="forminfo">
+                                <div class="form-group col-12">
+                                  <label for="inputNumeroCartao">Número </label>
+                                  <input [disabled]="idPagamento != 1" type="text" class="form-control"
+                                    id="inputNumeroCartao" name="request.nrNumeroCartao"
+                                    [(ngModel)]="requestC.nrNumeroCartao" mask="0000.0000.0000.0000"
+                                    placeholder="0000.0000.0000.0000" required>
+                                </div>
+                                <div class="form-group col-12">
+                                  <label for="inputNomeCartao">Nome </label>
+                                  <input [disabled]="idPagamento != 1" type="text" class="form-control"
+                                    id="nmNomeTitular" name="requestC.nmNomeTitular"
+                                    [(ngModel)]="requestC.nmNomeTitular" placeholder="Nome no cartão" required>
+                                </div>
+                              </form>
+                              <div class="inclui my-4 justify-content-center">
+                                <button type="submit" class="btn btn-success" (click)="inserirCartao()">Inserir Cartão
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--FIM  Collapse Cartões -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- INICIO Collapse Débito-->
+            <div class="card">
+              <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                <input type="radio" name="forma-de-pagamento" id="2" [value]="2" [(ngModel)]="idPagamento" class="credito col-1">
+                <span>Débito</span> &nbsp; &nbsp; &nbsp;
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-credit-card-2-front-fill"
+                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+                </svg>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  <div>
+                    <div class="input-group">
+                      <div class="col-4">
+                        <span>Agência</span>
+                        <div><input [disabled]="idPagamento != 2" type="text" id=nome class="form-control bg-light"
+                            mask="00000-0" placeholder="" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <div class="col-4">
+                        <span>Conta</span>
+                        <div><input [disabled]="idPagamento != 2" type="text" id=nome class="form-control bg-light"
+                            mask="00000-0" placeholder="" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- FIM Collapse Débito-->
+                </div>
+              </div>
+            </div>
+
+            <!-- INICIO Collapse Boleto-->
+            <div class="card">
+              <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">
+                <input type="radio" name="forma-de-pagamento" id="3" [value]="3" [(ngModel)]="idPagamento" class="credito col-1">
+                <span>Boleto</span> &nbsp; &nbsp; &nbsp;
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-file-text-fill" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z" />
+                </svg>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                  <div>
+                    <span>Imprima o boleto bancário após a finalização do pedido e faça o
+                      pagamento para concluir sua compra.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- FIM Collapse Boleto-->
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-lg-6 box">
+      <br>
+      <h3><span id="resumo">Resumo do Pedido</span></h3>
+      <br>
+      <br>
+      <br>
+
+      <div class="row detalhes ">
+        <div class="linha col-4">
+          <span>Produto</span>
+        </div>
+        <div class="linha col-4">
+          <span>Quantidade</span>
+        </div>
+        <div class="linha col-4">
+          <span>Valor</span>
+        </div>
+      </div>
+      <div *ngFor="let produto of produtos" class="row detalhes">
+        <div class="linha col-4">
+          <p>{{produto.nomeFantasia}}</p>
+        </div>
+        <div class="linha col-4">
+          <p>{{produto.qtProduto}}</p>
+        </div>
+        <div class="linha col-4">
+          <p>R$ {{produto.valorUnidade}}</p>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="subtotal">
+        <h4>Subtotal</h4>
+        <h4> {{ calculaCesta() | currency: 'BRL' }}</h4>
+      </div>
+      <br>
+      <div class="frete d-flex justify-content-between">
+        <h4>Frete</h4>
+        <h4>GRÁTIS</h4>
+      </div>
+      <br>
+
+      <div class="total d-flex justify-content-between">
+        <h4>Total </h4>
+        <h4> {{ calculaCesta() | currency: 'BRL' }}</h4>
+      </div>
+      <br>
+      <div class="finalizar">
+        <button [disabled]="!pagamentoEValido()" (click)="clicked()" data-toggle="modal" data-target="#resumo" class="btn btnf btn-primary">FINALIZAR
+          COMPRA</button>
+      </div>
+    </div>
+  </div>
+  <app-footer-main></app-footer-main>

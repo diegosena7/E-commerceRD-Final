@@ -1,0 +1,135 @@
+/*ACIMA DO MENU*/
+.superior-topo {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.superior-topo .text-input {
+    width: 420px;
+}
+
+.superior-topo a {
+    text-decoration: none;
+    color: #016f33;
+    font-style: italic;
+    text-align: justify;
+}
+
+.logo-home {
+    margin: 0 20px 10px 0;
+    max-width: 100px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+}
+
+
+@media screen and (max-width: 520px) {
+    .superior-topo{display: block;}
+}
+
+#botao-busca {
+    background: #016f33;
+
+}
+
+#imagem-busca {
+    width: 24px;
+    height: 24px;
+}
+
+.login {
+    position: relative;
+    display: inline-block;
+}
+
+.login-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.login:hover .login-content {
+    display: block;
+}
+
+/* .login {
+    display: flex;
+    align-items: center;
+}
+
+.editar {
+    position: relative;
+    display: inline-block; 
+}
+
+.login .editar :hover {
+    display: block;
+} */
+
+.pedidos {
+    display: flex;
+    align-items: center;
+}
+
+.img-red img {
+    width: 30px;
+    height: 30px;
+    margin: 15px;
+}
+
+.left-cart {
+    width: 40px;
+    height: 53px;
+    background-image: url('../../assets/images/left.png');
+}
+
+.center-cart {
+    background-color: #016f33;
+    height: 43px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-cart {
+    width: 15px;
+    height: 43px;
+    background-image: url('../../assets/images/right.png');
+}
+
+.cart {
+    display: flex;
+}
+
+.quantity {
+    color: #FFFFFF;
+    font-style: italic;
+}
+
+.value {
+    color: #f1a658;
+    font-style: italic;
+}
+
+/*MENU CATEGORIA*/
+/* .categoria-header ul {
+    background: #016f33;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+} */
+
+.categoria-header-links a {
+    display: flex;
+    justify-content: space-between;
+    color: white!important;
+    margin: 0 0;
+}
+

@@ -1,0 +1,78 @@
+pre {
+    color: red;
+}
+
+.teste{
+    justify-content: flex-end;
+    margin-left: 900px;
+
+}
+.headerCad{
+    background-color:#dcd7d1;
+    width:100%;
+    float:left;
+    padding:2% 4%;
+    overflow: hidden;
+}
+
+.tituloCad{
+    font-style: italic;
+    margin-left: initial;
+    padding: 10px;
+}
+
+.logo{
+    float: center;
+    background: url('../../assets/images/logoRaiaRedimensionado.png')center center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    width: 100px;
+    height: 100px;
+}
+
+.logoAtendimento{
+    background-image: url('../../assets/images/fone-verde.png')center center;
+    background-size: 500px;
+    margin-left: 600px;
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+.checkCad{
+    background-color: white;
+    border: 0px;
+
+}
+.footerCad{
+
+    background: #dcd7d1;
+    width:100%;
+    float:left;
+    padding:3% 4%;
+}
+
+#numero{
+    font-size: 28px;
+    margin-left:130px;
+}
+.atenCad{
+    font-size: 28px;
+    margin-left: 0px;
+
+}
+.racCad{
+    font-size: 20px;
+    margin-left:250px;
+    margin-right:50px;
+    font-style: italic;
+}
+.contCad{
+    font-size: 20px;
+
+}
+/*#dropdownMenuButton{
+    padding-left: 95px;
+    padding-right: 90px;
+}*/
+
+

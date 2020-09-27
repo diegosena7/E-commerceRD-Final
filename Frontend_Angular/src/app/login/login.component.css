@@ -1,0 +1,61 @@
+.logoIdentificacao {
+    /*Ícone de usuário na tela de identificação*/
+    display: inline;
+    position: absolute;
+    left: 90px;
+  }
+  
+  .text-identificacao {
+    /*Texto de cadastro para não clientes*/
+    margin-left: 150px;
+    margin-top: 0;
+    
+  }
+  
+  .text-soucliente {
+    /*Texto de identificação do usuário*/
+    margin-left: 125px;
+    margin-top: 30px;
+    color: var(--verdetexto);
+  }
+  .text-naocliente {
+    color: var(--laranjatexto);
+    margin-top: 0;
+    margin-left: 10px;
+  }
+  
+  .text-cadastro {
+    position: absolute;
+    margin-top: 55px;
+    margin-left: 40px;
+    font-weight: bolder;
+    font-size: 15px;
+  }
+  .esq-senha {
+    color: var(--laranjatexto);
+  }
+  
+  .fazerlogin {
+    /*Botão de login*/
+    margin-top: 40px;
+    background-color: var(--verdetexto);
+    margin-left: 100px;
+  }
+  .fazercadastro {
+    /*Botão de cadastro*/
+    margin-left: 115px;
+    margin-top: 25px;
+  }
+  .formLogin {
+    /*Formulário de login*/
+    margin-top: 0;
+    margin-left: 90px;
+  }
+  
+  .logoIdentificacao {
+    /*Ícone de usuário na tela de identificação*/
+    display: inline;
+    position: absolute;
+    left: 90px;
+  }
+  

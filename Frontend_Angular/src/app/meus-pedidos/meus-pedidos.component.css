@@ -1,0 +1,66 @@
+/*HISTORICO DE COMPRAS*/
+.hist{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 100px;
+  }
+  
+.historico-titulo h2 {
+    font-size: 26px;
+    padding: 50px;
+    color: #016f33;
+    font-weight: bold;
+  }
+  
+.historico-fundo {
+    border-style: groove;
+    height: auto;
+    padding: 0px;
+  }
+  
+.historico-tabela{  
+  margin-bottom: 50px;
+  }
+  
+.item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+.historico ul {
+    display: flex;
+    background-color: #016f33;
+    height: 35px;
+    justify-content: space-around;
+    color: white;
+    padding: 0px;
+    font-size: 19px;
+  }
+  
+.items ul {  
+    display: flex;
+    color: black;
+    justify-content: space-between;
+    padding: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 200px;
+  }
+  
+#imagem{  
+    margin-left: 30px;
+  }
+  
+.btn-success {  
+    font-size: 17px;
+    background-color: #016f33;
+  }
+
+.botao {  
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }

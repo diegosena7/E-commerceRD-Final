@@ -1,0 +1,83 @@
+input[type="radioOpcao"] {
+  visibility: hidden;
+  width: 0px;
+}
+
+label {
+  display: inline-block;
+  width: 60px;
+  float: left;
+}
+
+input[type="radio"]:checked+label {
+  border-color: #ccf;
+}
+
+.caixa {
+  padding: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(226, 223, 223);
+  background-color: transparent;
+}
+
+.box {
+  padding: 20px;
+  margin-top: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(226, 223, 223);
+  background-color: transparent;
+}
+
+#mes {
+  margin-right: 30px;
+}
+
+.bandeira {
+  float: right;
+  margin-left: 20px;
+}
+
+.debito {
+  justify-content: center;
+}
+
+h3 {
+  font-style: italic;
+}
+
+.checkCad {
+  padding: 0px;
+  border: 0px;
+}
+
+#resumo {
+  float: right;
+}
+
+.linha {
+  border-width: 1px;
+  padding: 5px;
+}
+
+.detalhes {
+  font-size: 23px;
+}
+
+.finalizar {
+  float: right;
+}
+
+.pagar{
+  display: inline-block;
+  justify-content: space-around;
+}
+
+.tituloCredito{
+  font-size: 20px;
+  font-style: italic;
+  color: #016f33;
+  margin: 10px;
+  text-align: center;
+}

@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.categorias{
+    background-color: #f2f2f2;
+    padding: 0;
+} 
+
+ul {
+    list-style: none;
+}
+
+.link-superior-categorias {
+    margin: 40px;
+    font-size: 20px;
+}
+
+.link-superior-categorias a {
+    color: #016f33;
+    text-decoration: none;
+}
+
+.titulo-categoria {
+    margin: 20px;
+}
+
+.titulo-categoria h1 {
+    color: #016f33;
+}
+
+.descricoes-categoria {
+    font-size: large;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.links-paginacao-categoria a {
+    color: black;
+}
+
+.lista-categorias {
+    margin: 0 auto;
+    display: block;
+}
+
+.lista-categorias h4 {
+    color: #016f33;
+}
+
+.lista-categorias a {
+    color: black;
+    text-decoration: none;
+}
+
+/*produtos categoria*/
+.container-categorias {
+    position: relative;
+    max-width: 1460px;
+
+}
+
+.coluna-esquerda {
+    width: 20%;
+}
+
+.coluna-principal {
+    width: 75%;
+}
+
+.grade-produtos {
+    display: block;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.produtos-categorias {
+    background-color: #f1f1f1;
+    justify-content: center;
+
+}
+
+.box-produtos {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 380px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 6px;
+}
+
+.card-imagem-produto {
+    margin-top: 20px;
+    max-height: 70%;
+    max-width: 60%;
+    border-radius: 10px;
+    border-style: double;
+}
+
+.detalhe-produto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .detalhe-produto{
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+}
+ */
+.detalhe-produto h6 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.titulos-produtos {
+    margin: 40px 10px;
+    color: #016f33;
+    display: flex;
+    justify-content: flex-start;
+    font-style: italic;
+}
+
+.alinha-produto{
+    justify-content: space-around;
+}
+
+.op{
+    margin-left: 10px;
+}
+
+.produtos{
+    background-color: rgb(243, 243, 243);
+}

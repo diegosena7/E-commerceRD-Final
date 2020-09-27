@@ -1,0 +1,8 @@
+/*CARROSSEL*/
+@media screen and (max-width: 520px) {
+    .carrossel{display: none;}
+}
+
+.carrossel {
+    margin: 15px 0;
+}

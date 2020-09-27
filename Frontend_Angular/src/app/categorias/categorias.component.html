@@ -1,0 +1,90 @@
+<app-header-main></app-header-main>
+<div class="row">
+  <div class="col-12">
+    <div class="titulo-categoria my-5">
+      <h1>Todos de A-Z</h1>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-categorias">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="lista-categorias">
+        <ul>
+          <li>
+            <h4>Fabricante</h4>
+          </li>
+          <li *ngFor="let fabricantes of responseFabricantes"><a routerLink="categorias/:id/:idPreco/fabricantes.nomeFabricante" (click)="click2(fabricantes.nomeFabricante)">{{fabricantes.nomeFabricante}}</a></li>
+        </ul>
+
+        <ul>
+          <li>
+            <h4>Preço</h4>
+          </li>
+          <li><a routerLink="categorias/:id/1/:nomeFabricante" (click)="click('1')" >R$0,00 - R$9,99</a></li>
+          <li><a routerLink="categorias/:id/2/:nomeFabricante" (click)="click('2')">R$10,00 - R$19,99</a></li>
+          <li><a routerLink="categorias/:id/3/:nomeFabricante" (click)="click('3')">R$20,00 - R$29,99</a></li>
+          <li><a routerLink="categorias/:id/4/:nomeFabricante" (click)="click('4')">R$30,00 - R$39,99</a></li>
+          <li><a routerLink="categorias/:id/5/:nomeFabricante" (click)="click('5')">R$40,00 - R$49,99</a></li>
+          <li><a routerLink="categorias/:id/6/:nomeFabricante" (click)="click('6')">R$50,00 ou mais</a></li>
+        </ul>
+
+        <ul>
+          <li>
+            <h4>Filtros</h4>
+          </li>
+          <div *ngIf="nomeFabricante!='0'">
+            <li><a routerLink="categorias/:id/:idPreco/0" (click)="click2('0')">{{this.nomeFabricante}}</a></li>
+          </div>
+          <div *ngIf="idPreco!='0'&&idPreco=='1'">
+            <li><a routerLink="categorias/:id/1/:nomeFabricante" (click)="click('0')" >R$0,00 - R$9,99</a></li>
+          </div>
+          <div *ngIf="idPreco!='0'&&idPreco=='2'">
+            <li><a routerLink="categorias/:id/1/:nomeFabricante" (click)="click('0')" >R$10,00 - R$19,99</a></li>
+          </div>
+          <div *ngIf="idPreco!='0'&&idPreco=='3'">
+            <li><a routerLink="categorias/:id/1/:nomeFabricante" (click)="click('0')" >R$20,00 - R$29,99</a></li>
+          </div>
+          <div *ngIf="idPreco!='0'&&idPreco=='4'">
+            <li><a routerLink="categorias/:id/1/:nomeFabricante" (click)="click('0')" >R$30,00 - R$39,99</a></li>
+          </div>
+          <div *ngIf="idPreco!='0'&&idPreco=='5'">
+            <li><a routerLink="categorias/:id/1/:nomeFabricante" (click)="click('0')" >R$40,00 - R$49,99</a></li>
+          </div>
+          <div *ngIf="idPreco!='0'&&idPreco=='6'">
+            <li><a routerLink="categorias/:id/1/:nomeFabricante" (click)="click('0')" >R$50,00 ou mais</a></li>
+          </div>
+      
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="produtos-categorias">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div *ngFor="let produtos of responseProdutos" class="col-12 col-sm-4">
+              <div class="box-produtos">
+                <img [src]="produtos.imagens[0].dsUrl" class="card-imagem-produto">
+                <div class="detalhe-produto">
+                  <h6>{{ produtos.nomeFantasia }}</h6>
+                  <h6>{{ produtos.valorUnidade | currency: 'BRL': true}}</h6>
+                  <div>
+                    <a (click)="clicked(produtos.cdProduto)" style="text-decoration: none;"><button type="button" title="comprar"
+                        class="btn btn-primary btn-lg btn-block">Comprar</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h1 *ngIf="responseProdutos.length < 1">Não há produtos disponíveis para os critérios de busca.</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<app-footer-main></app-footer-main>

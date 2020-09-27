@@ -1,0 +1,68 @@
+<app-header-secondary></app-header-secondary>
+
+<div style="background: white;">
+  <!-- <img class="logoIdentificacao" src="../../assets/images/Ícones/user.png" class="img-fluid" alt="Responsive image"> -->
+  <h1 class="text-identificacao">Identificação</h1>
+  <!--Coluna do formulário de Login-->
+  <div class="row">
+    <div class="col-6 col-lg-6">
+      <form>
+        <h2 class="text-soucliente">Já sou cliente RD</h2>
+        <div class="formLogin">
+          <div class="form-group col-9">
+            <label *ngIf="erro == 500" style="color: red;">Os dados de login não estão corretos, favor verificar o E-mail, CPF ou senha e tente novamente!</label>
+            <label for="exampleInputEmail1">E-mail ou CPF*</label>
+            <input type="email" name="login" [(ngModel)]="request.login" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Digite o e-mail cadastrado" required>
+          </div>
+          <div class="form-group col-9">
+            <label for="exampleInputPassword1">Senha*</label>
+            <input my-input="senha" [(ngModel)]="request.senha" type="password" class="form-control" minlength="3"
+              maxlength="15" class="form-control" id="senha" name="senha" placeholder="Senha"
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" required>
+            <div class="row justify-content-between">
+              <pre><a routerLink="esqueci-senha" data-toggle="modal" data-target="#EsqueciSenha">Esqueci minha senha</a></pre>
+              <pre><a routerLink="cadastrado-em-loja" data-toggle="modal" data-target="#cadastradoLoja">Cadastrado em loja</a></pre>
+            </div>
+            <script>
+              var model = {};
+              var input = document.querySelector('[senha');
+              var modelProperty = input.getAttribute('senha');
+              input.addEventListener('keyup', function (e) {
+                model[modelProperty] = e.target.value;
+              });
+
+            </script>
+            <!-- <small id="emailHelp" class="form-text text-muted esq-senha">Esqueceu sua senha? Clique aqui
+                para recuperar!!!</small> -->
+          </div>
+          <div class="form-group form-check">
+          </div>
+          <button style="background-color: #016f33!important" type="submit" class="btn btn-primary fazerlogin"
+            (click)="logar()">FAÇA SEU
+            LOGIN</button>
+        </div>
+      </form>
+    </div>
+    <!--Coluna da identificação de cliente-->
+    <div class="col-6 col-lg-6">
+      <h2 class="text-naocliente">Ainda não é cliente RD?</h2>
+      <div>
+        <p class="text-cadastro">Cadastre-se para receber novidades e
+          <br> descontos exclusivos!
+          <br>
+          <br>
+          <br>
+          A seguir você informará seus dados para <br>
+          continuar o processo de compra.</p>
+
+        <img class="img-cadastro" src="../../assets/images/img.cadastro.png" class="img-fluid" alt="Responsive image">
+
+      </div>
+      <button style="background-color: #f1a658 !important" type="submit" class="btn btn-primary fazercadastro"
+        routerLink="cadastro">CADASTRE-SE</button>
+    </div>
+  </div>
+</div>
+
+<app-footer-secondary></app-footer-secondary>

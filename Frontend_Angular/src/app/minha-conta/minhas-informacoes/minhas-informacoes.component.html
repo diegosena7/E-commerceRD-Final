@@ -1,0 +1,116 @@
+<app-header-secondary></app-header-secondary>
+
+<app-menu-minha-conta></app-menu-minha-conta>
+
+<div style="margin-left:25%;padding:1px">
+
+    <div class="row titulo">
+        <h3>MINHAS INFORMAÇÕES</h3>
+    </div>
+    <div class="row meio justify-content-center mb-5">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6 col-12">
+                        <label for="inputName">Nome Completo*</label>
+                        <input type="text" class="form-control" id="nmCliente" name="nmCliente"
+                            [(ngModel)]="request.nmCliente" #nmCliente="ngModel" minlength="2" required
+                            [class.is-invalid]="nmCliente.errors" maxlength="75">
+                        <div *ngIf="nmCliente.errors && (nmCliente.dirty)" class="alert alert-danger">
+                            <div [hidden]="!nmCliente.errors.required">
+                                Digite o nome
+                            </div>
+                            <div [hidden]="!nmCliente.errors.minlength">
+                                O nome deve conter ao menos 2 caracteres.
+                            </div>
+                            <div [hidden]="!nmCliente.errors.maxlength">
+                                O nome deve conter ao menos 75 caracteres.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-12">
+                        <label for="inputCpf">CPF*</label>
+                        <input disabled type="text" class="form-control" id="nrCpf" name="nrCpf"
+                            [(ngModel)]="request.nrCpf" #nrCpf="ngModel" minlength="12" required
+                            [class.is-invalid]="nrCpf.errors" maxlength="12" mask="000.000.000-00"
+                            placeholder="000.000.000-00">
+                    </div>
+
+                    <div class="form-group col-md-3 col-6">
+                        <label for="inputDtNasc">Data de nascimento*</label>
+                        <input type="date" class="form-control" id="dtNasc" name="dtNasc" [(ngModel)]="request.dtNasc"
+                            #dtNasc="ngModel" required [class.is-invalid]="dtNasc.errors">
+                        <div *ngIf="dtNasc.errors && (dtNasc.dirty)" class="alert alert-danger">
+                            <div [hidden]="!dtNasc.errors.required">
+                                Este campo é obrigatório!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3 col-6">
+                        <label for="inputGen">Gênero*</label>
+                        <select class="form-control" id="dsGenero" name="dsGenero" [(ngModel)]="request.dsGenero"
+                            #dsGenero="ngModel" required [class.is-invalid]="dsGenero.errors">>
+                            <option selected> </option>
+                            <option value="MS">Masculino</option>
+                            <option Value="FM">Feminino</option>
+                        </select>
+                        <div *ngIf="dsGenero.errors && (dsGenero.dirty)" class="alert alert-danger">
+                            <div [hidden]="!dsGenero.errors.required">
+                                Este campo é obrigatório
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3 col-6">
+                        <label for="inputTel1">Telefone*</label>
+                        <input type="text" class="form-control" id="nrTelefone1" name="nrTelefone1"
+                            [(ngModel)]="request.nrTelefone1" #nrTelefone1="ngModel" placeholder="(00) 0 0000-0000"
+                            mask="(00) 0000-0000 ||(00) 0 0000-0000" required [class.is-invalid]="nrTelefone1.errors">
+                        <div *ngIf="nrTelefone1.errors && (nrTelefone1.dirty)" class="alert alert-danger">
+                            <div [hidden]="!nrTelefone1.errors.required">
+                                Este campo é obrigatório
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3 col-6">
+                        <label for="inputTel2">Telefone 2</label>
+                        <input type="text" class="form-control" id="nrTelefone2" name="nrTelefone2"
+                            [(ngModel)]="request.nrTelefone2" #nrTelefone2="ngModel" placeholder="(00) 0 0000-0000"
+                            mask="(00) 0000-0000 ||(00) 0 0000-0000" required [class.is-invalid]="nrTelefone2.errors">
+                        <div *ngIf="nrTelefone2.errors && (nrTelefone2.dirty)" class="alert alert-danger">
+                            <div [hidden]="!nrTelefone2.errors.required">
+                                Este campo é obrigatório
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail">E-mail*</label>
+                        <input type="text" class="form-control" id="dsEmail" name="dsEmail"
+                            [(ngModel)]="request.dsEmail" #dsEmail="ngModel" required
+                            [class.is-invalid]="dsEmail.errors">
+                        <div *ngIf="dsEmail.errors && (dsEmail.dirty || dsEmail.touched)" class="alert alert-danger" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                            <div [hidden]="!dsEmail.errors.required">
+                                Digite um email
+                            </div>
+                            <div [hidden]="!dsEmail.errors?.pattern">
+                                Digite um email válido
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row float-right">
+                    <div class="my-4">
+                        <button type="submit" class="btn btn-success" (click)="updateDadosCliente()">Salvar
+                            Alterações</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer-secondary></app-footer-secondary>

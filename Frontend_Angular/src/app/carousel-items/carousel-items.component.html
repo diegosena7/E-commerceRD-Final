@@ -1,0 +1,29 @@
+<app-header-main></app-header-main>
+<app-carousel></app-carousel>
+
+<div class="row titulos-produtos">
+  <div class="col-12">
+    <h2>Destaques da Semana</h2>
+  </div>
+</div>
+
+<div class="carrossel-destaques" style="display: block;">
+  <div class="row justify-content-center">
+    <div *ngFor="let produtos of responseProdutos" class="col-12 col-sm-3">
+      <div class="box-produtos">
+        <img [src]="produtos.imagens[0].dsUrl" class="card-imagem-produto">
+        <div class="detalhe-produto">
+          <h6>{{ produtos.nomeFantasia }}</h6>
+          <h6>{{ produtos.valorUnidade | currency: 'BRL': true}}</h6>
+          <div>
+            <a (click)="clicked(produtos.cdProduto)" style="text-decoration: none;"><button type="button"
+                title="comprar" class="btn btn-primary btn-lg btn-block">Comprar</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer-main></app-footer-main>

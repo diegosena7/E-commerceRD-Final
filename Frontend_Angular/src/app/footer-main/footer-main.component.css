@@ -1,0 +1,101 @@
+/*FOOTER*/
+.footer-separacao {
+    background: #016f33;
+    height: 40px;
+    margin: 20px 0;
+}
+
+.links-footer {
+    margin: 40px 40px 60px 40px;
+    text-align: left; 
+}
+.links-footer-pos {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.links-footer h5 {
+    color: #016f33;
+}
+
+.links-footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.links-footer a:hover {
+    color: #016f33;
+}
+
+.contatos {
+    background-color: #e6e6e6;
+    border: black;
+    padding: 25px 15px;
+    margin: 0 20%;
+}
+
+.item-contato {
+    padding: 20px 60px 20px 60px;
+    line-height: 1;
+}
+
+.item-contato strong {
+    color: #016f33;
+}
+
+#anvisa-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+
+.pagamentos-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pagamentos-footer img {
+    margin: 15px 25px 15px 0;
+}
+
+.info-footer {
+    margin: 20px 0;
+
+}
+
+.logo-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo-footer {
+    max-width: 150px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+.copyr {
+    height: 40px;
+    margin: 20px 0 0 0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #e6e6e6;
+}
+
+@media screen and (max-width: 520px) {
+    .copyr{height: 80px;}
+}
+
+.copyr strong {
+    color: #016f33;
+}

@@ -1,0 +1,70 @@
+<div class="modal fade" id="resumo" tabindex="-1" role="dialog" aria-labelledby="modalEntradaOperadorLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title consertaModalTitle">COMPRA CONCLUÍDA COM SUCESSO</h1>
+                
+            </div>
+            <div class="modal-body consertaEntradaOperador">
+                <form id="sla">
+                    <div class="form-group">
+                        <p>
+                            Seu pedido poderá ser visualizado em histórico de pedidos, basta que esteja logado ao seu
+                            usuário.
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <h4>Resumo da compra:</h4>
+                        <p>O resumo de sua compra será encaminhado ao email: {{ resumoCompra.dsEmail }}</p>
+                    </div>
+                    <div class="form-group">
+                        <h4>Forma de pagamento:</h4>
+                        <p>Modo de pagamento: {{ resumoCompra.formaPagamento }}</p>
+                        <p *ngIf="resumoCompra.nrNumeroCartao">Cartão que foi pago: {{ resumoCompra.nrNumeroCartao }}</p>
+                        <p *ngIf="resumoCompra.nmNomeTitular">Titular do cartão: {{ resumoCompra.nmNomeTitular }}</p>
+                    </div>
+                    <div class="form-group">
+                        <h4>Endereço a ser entregue:</h4>
+                        <p>CEP: {{ resumoCompra.endereco.nrCep | mask:'00000-000' }}</p>
+                        <p>Logradouro: {{ resumoCompra.endereco.dsEndereco }}</p>
+                        <p>Número: {{ resumoCompra.endereco.nrEndereco }}</p>
+                        <p>Complemento: {{ resumoCompra.endereco.nmCompleto }}</p>
+                        <p>Bairro: {{ resumoCompra.endereco.dsBairro }}</p>
+                        <p>Cidade: {{ resumoCompra.endereco.dsCidade }}</p>
+                        <p>Estado: {{ resumoCompra.endereco.sgEstado }}</p>
+                    </div>
+                    <div class="form-group">
+                        <h4>Produtos comprados:</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Vl. Unitário</th>
+                                    <th scope="col">Quantidade</th>
+                                    <th scope="col">Vl. Total</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let itens of resumoCompra.itensDocumento">
+                                <tr>
+                                    <th scope="row">{{ itens.nrItemDocumento }}</th>
+                                    <td>{{ itens.nmProduto }}</td>
+                                    <td>{{ itens.vlItemUnitario }}</td>
+                                    <td>{{ itens.qtItem }}</td>
+                                    <td>{{ itens.vlTotalItem }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer consertaModalBotton">
+                <!-- <button type="button" routerLink="/login" class="btn btn-danger" data-dismiss="modal"
+                    id="btnCancelarPagamento">CANCELAR</button> -->
+                <button type="button" class="btn btn btn-success" data-dismiss="modal" routerLink=".."
+                    (click)="Concluir()" id="btnCancelarPagamento">Concluir</button>
+            </div>
+        </div>
+    </div>
+</div>

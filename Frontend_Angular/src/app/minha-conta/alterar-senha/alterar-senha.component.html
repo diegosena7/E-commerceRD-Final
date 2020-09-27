@@ -1,0 +1,65 @@
+<app-header-secondary></app-header-secondary>
+
+<app-menu-minha-conta></app-menu-minha-conta>
+
+<div style="margin-left:25%;padding:1px">
+    <div class="row titulo">
+        <h3>ALTERAR SENHA</h3>
+    </div>
+
+    <div class="row justify-content-center ">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form name="forminfo">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inputSenha">Senha Atual</label>&nbsp;&nbsp;
+                        <div>
+                            <input type="password" class="form-control" id="senhaAtual" name="senhaAtual"
+                                [(ngModel)]="request.senhaAtual" #senhaAtual="ngModel" required
+                                [class.is-invalid]="senhaAtual.errors">
+                            <div *ngIf="senhaAtual.errors && (senhaAtual.dirty)" class="alert alert-danger">
+                                <div [hidden]="!senhaAtual.errors.required">
+                                    Digite a Senha Atual
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inputNovaSenha">Nova Senha </label>&nbsp;&nbsp;
+                        <input type="password" class="form-control" id="novaSenha" name="novaSenha"
+                            [(ngModel)]="request.novaSenha" #novaSenha="ngModel" required
+                            [class.is-invalid]="novaSenha.errors">
+                        <div *ngIf="novaSenha.errors && (novaSenha.dirty)" class="alert alert-danger">
+                            <div [hidden]="!novaSenha.errors.required">
+                                Digite a nova senha
+                            </div>
+                        </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-group">
+                        <label for="inputConfirmar">Confirmar Nova Senha </label> &nbsp;&nbsp;
+                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha"
+                            [(ngModel)]="request.confirmarSenha" #confirmarSenha="ngModel" required
+                            [class.is-invalid]="confirmarSenha.errors">
+                        <div *ngIf="confirmarSenha.errors && (confirmarSenha.dirty)" class="alert alert-danger">
+                            <div [hidden]="!confirmarSenha.errors.required">
+                                Confirmação a nova senha
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-4 justify-content-center">
+                        <div class="my-4">
+                            <button (click)="alterarSenha()" type="submit" class="btn btn-success">Alterar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-footer-secondary></app-footer-secondary>

@@ -1,0 +1,61 @@
+<app-header-main></app-header-main>
+<!-- <app-menu-final-compra></app-menu-final-compra> -->
+
+<div class="row historico-titulo">
+    <div class="col-lg-12">
+        <h2>Histórico de Compras </h2>
+    </div>
+</div>
+
+<main>
+    <div *ngFor="let pedido of responsePedidos; let i = index">
+        <div class='row marginTabela' style='text-align: center'>
+            <table class="table">
+                <thead class="thead-default tituloTabela">
+                    <tr style="background-color: #016f33; color: white;">
+                        <th scope="col">Pedido</th>
+                        <th scope="col">Status do Pedido</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Valor</th>
+                        <th class="">
+                            <button class="float-right" type="button" class="btn btn-primary" type="button"
+                                (click)="addCestaCompras(pedido.idPedido)">Refazer Pedido</button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="historico-tabela">
+                        <td scope="row">{{ pedido.idPedido }}</td>
+                        <td class='maxCarch'>{{ pedido.dsStatusPedido }}</td>
+                        <td class='maxCarch'>{{ pedido.dtCompra | date: 'dd/MM/yyyy' }}</td>
+                        <td class='maxCarch'>{{ pedido.vlTotalPedido | currency:"BRL" }}</td>
+                    </tr>
+
+                    <!--Pedido Itens-->
+                </tbody>
+
+                <tr style="background-color: #3CB371; color: white;">
+                    <th scope="col">Número do Item</th>
+                    <th scope="col">Código do Produto</th>
+                    <th scope="col">Nome do Produto</th>
+                    <th scope="col">Valor Item</th>
+                    <th class="">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
+                            [attr.data-target]="'#clps' + i" aria-expanded="true" [attr.aria-controls]="'#clps' + i">
+                            Clique para ver os detalhes do pedido
+                        </button>
+                    </th>
+                </tr>
+                <tr *ngFor="let items of pedido.items" class="historico-tabela collapse" id="{{'clps' + i}}"
+                    class="collapse" id="collapseExample" let i=index;>
+                    <td scope="row">{{ items.nrItemPedido }}</td>
+                    <td class='maxCarch'>{{ items.cdProduto }}</td>
+                    <td class='maxCarch'>{{ items.dsProduto }}</td>
+                    <td class='maxCarch'>{{ items.vlPedidoItem | currency:"BRL" }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</main>
+<app-footer-main></app-footer-main>

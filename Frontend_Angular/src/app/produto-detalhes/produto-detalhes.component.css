@@ -1,0 +1,144 @@
+
+
+/*estilo produto*/
+h2{
+    color: #016f33;
+}
+
+h5{
+    color: rgb(206, 52, 25);
+}
+
+.categoria-produto-links a {
+    color: #016f33 !important;
+    margin: 0 20px;
+}
+
+.cabecalho{
+    font-size:30px;
+    display: flex;
+    text-align: center;
+    color: #016f33 !important;
+}
+#cabBack{
+    color: #016f33 !important;
+    font-style: oblique;
+
+}
+/* #prodCentral{
+    margin-left:250px;
+    font-size: 50px;
+ 
+
+} */
+
+
+#valorProdIndividual{
+   font-size: 40px;
+   font-style: italic;
+   color: rgb(163, 13, 13);
+
+}
+
+#quant{
+    font-size:18px;
+    text-align:center;
+}
+
+#qntTamanho{
+    font-size: 20px;
+    
+}
+#alerta1, #alerta2{
+    border: 1px solid;
+    font-style: italic;
+    text-align: center;
+    padding:10px;
+    font-size: 20px;
+}
+
+.btnBuyProd{
+    color: #016f33 !important;
+
+}
+.veja{
+    margin: 40px 10px;
+    display: flex;
+    justify-content: start;
+    font-style: italic;
+}
+.prodFrete{
+    margin-top:50px;
+    font-size: 20px;
+    font-style: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+
+.car-desc{
+    margin-top: 10px;
+    font-size:20px;
+}
+
+#inputCep{
+    width: 0px;
+}
+
+.alinhaCEP{
+    display: flex;
+    background-color: lightgrey;
+}
+.active-prod{
+    margin-right:5px;
+    margin-left:5px;
+
+}
+
+.notactive-prod{
+    margin-left:5px;
+
+}
+
+.textoProdFrete{
+    margin-top: 100px;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+}
+.tamanhoCepProd{
+    width:400px;
+    margin-left: 160px;
+    margin-top: 80px;
+
+}
+
+.zoom {
+    overflow: hidden;
+    margin-left: 70px;
+}
+
+.zoom img {
+	max-width: 80%;
+	transition: all 0.3s;
+}
+
+.zoom:hover img {
+	transform: scale(1.3);
+}
+
+#Descrição{
+    font-size: 15px;
+}
+
+#Caracteristicas{
+    font-size: 15px;
+}
+
+#infocd{
+    font-size: 20px;
+}
+
+.container{
+    padding: 50px;
+    margin-right: 10px;
+}

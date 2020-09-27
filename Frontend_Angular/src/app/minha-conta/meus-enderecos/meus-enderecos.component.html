@@ -1,0 +1,313 @@
+<app-header-secondary></app-header-secondary>
+
+<app-menu-minha-conta></app-menu-minha-conta>
+
+<div style="margin-left:25%;padding:1px">
+
+    <div class="row titulo">
+        <h3>MEUS ENDEREÇOS</h3>
+    </div>
+
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne"
+                *ngFor="let enderecosCliente of responseEndereco.enderecos; let i= index;">
+                <p class="mb-0">
+                    <!--*ngFor="let enderecosCliente of enderecos; let i = index"-->
+                    <span>Endereço:</span> {{ enderecosCliente.dsEndereco }} Nº
+                    {{enderecosCliente.nrEndereco}},
+                    {{enderecosCliente.dsBairro}} - {{enderecosCliente.dsCidade}} -
+                    {{enderecosCliente.sgEstado}}
+                </p>
+                <button class="btn btn-danger float-right" (click)="deleteEnderecoCliente(enderecosCliente.idEndereco)">
+                    Excluir
+                </button>
+                <button class="btn btn-primary float-right" data-toggle="collapse" [attr.data-target]="'#clps' + i"
+                    aria-expanded="true" [attr.aria-controls]="'#clps' + i">
+                    Editar
+                </button>
+
+                <div id="{{'clps' + i}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <!--Inicio Form-->
+                        <div class="col-lg-12 box">
+                            <!--CEP-->
+                            <div class="row">
+                                <div class="input-group">
+                                    <div class="form-group col-2">
+                                        <label for="inputCep">CEP</label>
+                                        <div>
+                                            <input type="text" class="form-control" id="nrCep" name="nrCep"
+                                                [(ngModel)]="enderecosCliente.nrCep" #nrCep="ngModel" minlength="8"
+                                                required [class.is-invalid]="nrCep.errors" maxlength="9"
+                                                mask="00000-000" placeholder="00000-000">
+                                            <div *ngIf="nrCep.errors && (nrCep.dirty)" class="alert alert-danger">
+                                                <div [hidden]="!nrCep.errors.required">
+                                                    Digite o CEP
+                                                </div>
+                                                <div [hidden]="!nrCep.errors.minlength">
+                                                    O CEP deve conter ao menos 8 números.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Logradouro-->
+                                <div class="form-group col-md-6 col-12">
+                                    <label for="inputLogradouro">Logradouro</label>
+                                    <div>
+                                        <input type="text" class="form-control" id="dsEndereco" name="dsEndereco"
+                                            [(ngModel)]="enderecosCliente.dsEndereco" #dsEndereco="ngModel"
+                                            required [class.is-invalid]="dsEndereco.errors"
+                                           placeholder="Ex: Rua ...">
+                                        <div *ngIf="dsEndereco.errors && (dsEndereco.dirty)" class="alert alert-danger">
+                                            <div [hidden]="!dsEndereco.errors.required">
+                                                Digite o Endereço
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Numero-->
+                                <div class="form-group col-2">
+                                    <label for="inputNumero">Numero</label>
+                                    <div>
+                                        <input type="text" class="form-control" id="nrEndereco" name="nrEndereco"
+                                            [(ngModel)]="enderecosCliente.nrEndereco" #nrEndereco="ngModel"
+                                            required [class.is-invalid]="nrEndereco.errors" >
+                                        <div *ngIf="nrEndereco.errors && (nrEndereco.dirty)" class="alert alert-danger">
+                                            <div [hidden]="!nrEndereco.errors.required">
+                                                Digite o Número
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Complemento-->
+                            <div class="row">
+                                <div class="form-group col-md-6 col-12">
+                                    <label for="inputComplemento">Complemento</label>
+                                    <div>
+                                        <input type="text" class="form-control" id="inputComplemento" name="nmCompleto"
+                                            [(ngModel)]="enderecosCliente.nmCompleto">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Bairro-->
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="inputBairro">Bairro</label>
+                                    <div>
+                                        <input type="text" class="form-control" id="dsBairro" name="dsBairro"
+                                            [(ngModel)]="enderecosCliente.dsBairro" #dsBairro="ngModel" 
+                                            required [class.is-invalid]="dsBairro.errors">
+                                        <div *ngIf="dsBairro.errors && (dsBairro.dirty)" class="alert alert-danger">
+                                            <div [hidden]="!dsBairro.errors.required">
+                                                Digite o Bairro
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Cidade-->
+                                <div class="form-group col-3">
+                                    <label for="inputCidade">Cidade</label>
+                                    <div>
+                                        <input type="text" class="form-control" id="dsCidade" name="dsCidade"
+                                            [(ngModel)]="enderecosCliente.dsCidade" #dsCidade="ngModel" 
+                                            required [class.is-invalid]="dsCidade.errors">
+                                        <div *ngIf="dsCidade.errors && (dsCidade.dirty)" class="alert alert-danger">
+                                            <div [hidden]="!dsCidade.errors.required">
+                                                Digite a Cidade
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Estado-->
+                                <div class="form-group col-3">
+                                    <label for="inputEstado">Estado</label>
+                                    <div>
+                                        <select class="form-control" id="sgEstado" name="sgEstado"
+                                            [(ngModel)]="enderecosCliente.sgEstado" #sgEstado="ngModel" 
+                                            required [class.is-invalid]="sgEstado.errors">
+                                            <option selected></option>
+                                            <option>AC</option>
+                                            <option>AL</option>
+                                            <option>AP</option>
+                                            <option>AM</option>
+                                            <option>BA</option>
+                                            <option>CE</option>
+                                            <option>ES</option>
+                                            <option>ES</option>
+                                            <option>GO</option>
+                                            <option>MA</option>
+                                            <option>MT</option>
+                                            <option>MS</option>
+                                            <option>MG</option>
+                                            <option>PA</option>
+                                            <option>PB</option>
+                                            <option>PR</option>
+                                            <option>PE</option>
+                                            <option>PI</option>
+                                            <option>RJ</option>
+                                            <option>RN</option>
+                                            <option>RS</option>
+                                            <option>RO</option>
+                                            <option>RR</option>
+                                            <option>SC</option>
+                                            <option>SP</option>
+                                            <option>SE</option>
+                                            <option>TO</option>
+                                            <option>DF</option>
+                                        </select>
+                                        <div *ngIf="sgEstado.errors && (sgEstado.dirty)" class="alert alert-danger">
+                                            <div [hidden]="!sgEstado.errors.required">
+                                                Escolha um Estado
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <button id="color" type="submit" class="btn btn-success"
+                                    (click)="putEnderecoCliente(enderecosCliente.idEndereco, i)">Salvar
+                                    Alterações</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Final Form -->
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    Incluir Novo Endereço
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <!--Inicio Form-->
+                <div class="col-lg-12 box">
+                    <!--CEP-->
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="form-group col-2">
+                                <label for="inputCep">CEP</label>
+                                <div>
+                                    <input type="text" class="form-control" id="inputCep" placeholder="Ex. 03553-000"
+                                        name="nrCep" [(ngModel)]="enderecoInsere.nrCep" mask="00000-000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!--Logradouro-->
+                        <div class="form-group col-md-6 col-12">
+                            <label for="inputLogradouro">Logradouro</label>
+                            <div>
+                                <input type="text" class="form-control" id="inputLogradouro" placeholder="Ex. Rua"
+                                    name="dsEndereco" [(ngModel)]="enderecoInsere.dsEndereco">
+                            </div>
+                        </div>
+                        <!--Numero-->
+                        <div class="form-group col-2">
+                            <label for="inputNumero">Numero</label>
+                            <div>
+                                <input type="text" class="form-control" id="inputNumero" placeholder="Ex. Rua"
+                                    name="nrEndereco" [(ngModel)]="enderecoInsere.nrEndereco">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!--Complemento-->
+                        <div class="form-group col-md-6 col-12">
+                            <label for="inputComplemento">Complemento</label>
+                            <div>
+                                <input type="text" class="form-control" id="inputComplemento" name="nmCompleto"
+                                    [(ngModel)]="enderecoInsere.nmCompleto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Bairro-->
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="inputBairro">Bairro</label>
+                            <div>
+                                <input type="text" class="form-control" id="inputBairro" placeholder="Ex. Jardim Flores"
+                                    name="dsBairro" [(ngModel)]="enderecoInsere.dsBairro">
+                            </div>
+                        </div>
+                        <!--Cidade-->
+                        <div class="form-group col-3">
+                            <label for="inputCidade">Cidade</label>
+                            <div>
+                                <input type="text" class="form-control" id="inputCidade" placeholder="Ex. São Paulo"
+                                    name="dsCidade" [(ngModel)]="enderecoInsere.dsCidade">
+                            </div>
+                        </div>
+                        <!--Estado-->
+                        <div class="form-group col-3">
+                            <label for="inputEstado">Estado</label>
+                            <div>
+                                <select id="inputEstado" class="form-control" name="sgEstado"
+                                    [(ngModel)]="enderecoInsere.sgEstado">
+                                    <option selected></option>
+                                    <option>AC</option>
+                                    <option>AL</option>
+                                    <option>AP</option>
+                                    <option>AM</option>
+                                    <option>BA</option>
+                                    <option>CE</option>
+                                    <option>ES</option>
+                                    <option>ES</option>
+                                    <option>GO</option>
+                                    <option>MA</option>
+                                    <option>MT</option>
+                                    <option>MS</option>
+                                    <option>MG</option>
+                                    <option>PA</option>
+                                    <option>PB</option>
+                                    <option>PR</option>
+                                    <option>PE</option>
+                                    <option>PI</option>
+                                    <option>RJ</option>
+                                    <option>RN</option>
+                                    <option>RS</option>
+                                    <option>RO</option>
+                                    <option>RR</option>
+                                    <option>SC</option>
+                                    <option>SP</option>
+                                    <option>SE</option>
+                                    <option>TO</option>
+                                    <option>DF</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inclui my-4">
+                        <button id="color" type="submit" class="btn btn-success" routerLink="cesta/pagamento"
+                            (click)="postEnderecoCliente()">Salvar
+                            Endereço</button>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <!--Final Form -->
+    </div>
+</div>
+<app-footer-secondary></app-footer-secondary>

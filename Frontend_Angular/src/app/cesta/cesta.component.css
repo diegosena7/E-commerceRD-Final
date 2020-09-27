@@ -1,0 +1,178 @@
+.cesta-img{
+    font-size: 30px;
+    color: #016f33;
+    margin-left: 100px;
+    margin-top: 60px;
+}
+.cesta-img::after{
+    content: " ";
+    height: 50px;
+    width: 50px;
+    margin-left: -60px;
+    margin-top: -13px;
+    background-size: 50px;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/images/basket-verde.png');
+}
+
+.descricao-cesta{
+    background-color: #E2DFDF;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+ } 
+
+.descricao-cesta{
+  list-style: none;
+  padding: 10px;
+  color: #016f33;
+  font-size: 20px;
+}
+
+.cont-cesta{
+    margin-top: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:rgb(226,223,223);
+    background-color: transparent;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 5px;
+}
+
+.produto-cesta{
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+}
+ 
+.lixeira-cesta:hover{
+    text-decoration: none;
+    color: rgba(1, 1,1,0.5);
+}
+
+.lixeira-cesta{
+    color: black;
+    font-size: 10px;
+    position: relative;
+    top: 10px; 
+}
+.lixeira-cesta::after{
+    content:" ";
+    background-image: url('../../assets/images/lixeira.png');
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: 16px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+}
+ 
+.desc-resumo{
+ 
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 40px;
+  
+    
+    
+}
+
+.resumo-cesta{
+    font-size: 20px;
+    margin-left: 35px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 30px;
+    list-style: none; 
+}  
+
+.resumo-cesta ul{
+   list-style: none; 
+   text-align: center;
+   padding-left: 0px;
+}
+
+.linha-cesta{
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 1px;
+    width: 200px;
+    margin-left: 25px;
+    margin-top: 40px;
+}
+
+.btnFinalizar{
+    background-color: #016f33;
+    border-color: #016f33;
+    border-radius: 10px,0,10px,0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 200px;
+    border-radius: 40px;
+}
+
+.btnFinalizar:hover{
+
+    background-color: #03a14a;
+}
+
+.btnContinuar{
+    background-color: #016f33;
+    border-color: #016f33;
+    border-radius: 10px,0,10px,0;
+    margin-top: 30px;
+    width: 250px;
+    border-radius: 40px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.btnContinuar:hover{
+    background-color: #03a14a;
+}
+
+.alinha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove{
+    float: right;
+}
+
+.desaparece{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.desaparece:hover {
+    background-color: transparent;
+    color: rgb(165, 6, 6);
+}
+
+.desaparece:active {
+  background-color: transparent;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#balt{
+    border: 0px;
+    background-color: transparent;
+    color: #016f33;
+    border: none;
+    border-color: white;
+}
+
+#qtd{
+    padding: 3px;
+}

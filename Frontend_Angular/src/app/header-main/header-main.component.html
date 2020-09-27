@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="col-lg-6 col-12 superior-topo">
+        <a class="navbar-brand" href="index.html"><img src="../../assets/images/logo-raia-redimensionado.png"
+            class="logo-home"></a>
+
+        <!--Campo de busca de produtos-->
+        <form class="form-inline" action="categorias.html">
+          <input class="form-control mr-sm-1 text-input" type="text"
+            placeholder="Digite o nome do produto que deseja encontrar?" id="myInput" [formControl]="queryField"
+            (change)="listaProdutos()" list="answers" id="answer">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="botao-busca"> <img
+              src="../../assets/images/search.png" id="imagem-busca" (click)="enviaProdutos()"> </button>
+
+          <datalist id="answers">
+            <option *ngFor="let item of responseProduto" data-value="{{item.cdProduto}}" value="{{item.nomeFantasia}}">
+          </datalist>
+        </form>
+
+      </div>
+      <div class="col-lg-6 col-12 superior-topo img-red">
+        <div class="login">
+          <img src="../../assets/images/user.png">
+          <span><b *ngIf="!cliente">Olá Faça seu Login, Minha conta</b></span>
+          <span><b *ngIf="cliente">{{cliente.nmCliente}}</b></span>
+          <div class="login-content">
+            <ul>
+              <li><a *ngIf="!cliente" routerLink="/login">Login</a></li>
+              <li><a *ngIf="cliente" routerLink="/exclusivo">Minhas promoções</a></li>
+              <li><a *ngIf="cliente" routerLink="/minhas-informacoes">Editar Dados</a></li>
+              <li><a *ngIf="cliente" routerLink="" (click)="sair()">Sair</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pedidos">
+          <img src="../../assets/images/box.png">
+          <a routerLink="/meus-pedidos">Meus <br> Pedidos</a>
+        </div>
+        <!-- <div class="cart"> -->
+        <a routerLink="/cesta" class="cart">
+          <div class="left-cart"></div>
+          <div class="center-cart">
+            <span class="quantity">{{ contaCesta() }} Itens</span>
+            <span class="value">{{ calculaCesta() | currency: 'BRL' }}</span>
+          </div>
+          <div class="right-cart"></div>
+        </a>
+        <!-- </div> -->
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-light categoria-header-links" style="background-color: #016f33;">
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="categorias/24" (click)="link(24)">Medicamentos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="categorias/8" (click)="link(8)">Vitaminas e Suplementos</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="categorias/27" (click)="link(27)">Beleza</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="categorias/11" (click)="link(11)">Dermocosméticos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="categorias/24" (click)="link(28)">Cuidados diários</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="categorias/4" (click)="link(4)">Infantil</a>
+      </li>
+    </ul>
+  </div>
+</nav>

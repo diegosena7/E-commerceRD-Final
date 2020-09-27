@@ -1,0 +1,10 @@
+.consertaModalTitle {
+    text-align: center;
+    color: #666666 !important;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-left: 130px;
+  }
+  

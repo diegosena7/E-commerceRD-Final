@@ -1,0 +1,9 @@
+.footerCad {
+    text-align: center;
+    background: var(--corheader-footer);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 0;
+    position: relative;
+  }
+  
